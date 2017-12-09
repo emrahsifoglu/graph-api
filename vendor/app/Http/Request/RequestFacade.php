@@ -14,6 +14,18 @@ class RequestFacade
         return $_SERVER['REQUEST_METHOD'];
     }
 
+    public function getContentType() {
+        return isset($_SERVER['CONTENT_TYPE']) 
+            ? $_SERVER['CONTENT_TYPE'] 
+            : '';
+    }
+
+    public function getHttpContentType() {
+        return isset($_SERVER['HTTP_CONTENT_TYPE']) 
+            ? $_SERVER['HTTP_CONTENT_TYPE'] 
+            : '';
+    }
+
     /**
      * @param string $method;
      * @return bool
@@ -77,10 +89,20 @@ class RequestFacade
      * @return Request
      */
     public function getRequest() {
-        $method = $this->getRequestMethod();
         $uri = new Uri($this->getRequestUri());
+        $method = $this->getRequestMethod();
+        $contentType = $this->getContentType();
+        $httpContentType = $this->getHttpContentType();
+        $params = $this->getRequestParams($method);
 
-        return new Request($uri, $method, $this->getRequestParams($method), $this->isAJAX());
+        return new Request(
+            $uri, 
+            $method, 
+            $contentType, 
+            $httpContentType, 
+            $params, 
+            $this->isAJAX()
+        );
     }
 
 }

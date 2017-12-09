@@ -1,5 +1,4 @@
 .idea
 /app/config/config.yml
-/vendor/autoload.php
-/vendor/composer
-/vendor/symfony
+/vendor/*
+!/vendor/app/
