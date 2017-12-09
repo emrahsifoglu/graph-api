@@ -1,0 +1,6 @@
+dataSource:
+    database:
+        host: localhost
+        name:
+        user:
+        password:
