@@ -111,4 +111,53 @@ class TickFacade
         $id = $this->tickRepository->create($entity);
         $tick->setId($id);
     }
+
+    /**
+     * @param array $ticks
+     * @return array
+     */
+    public function generateGraphData(array $ticks) {
+        $labels = [];
+        $dataSets = [];
+
+        /** @var Tick $tick */
+        foreach ($ticks as $tick) {
+            $dataSets[$tick->getTitle()]['label'] = '# of ' . ucfirst($tick->getTitle());
+            $dataSets[$tick->getTitle()]['data'][] = $tick->getData();
+            $dataSets[$tick->getTitle()]['backgroundColor'][] = $this->convertHexToRgbaStr($tick->getBackgroundColor(), $tick->getBackgroundColorOpacity());
+            $dataSets[$tick->getTitle()]['borderColor'][] = $this->convertHexToRgbaStr($tick->getBorderColor(), $tick->getBorderColorOpacity());
+            $dataSets[$tick->getTitle()]['borderWidth'] = 1;
+            $labels[] = ucfirst($tick->getName());
+        }
+
+        $data = [
+            'type' => 'bar',
+            'data' => [
+                'labels' => array_unique($labels),
+                'datasets' => array_values($dataSets)
+            ],
+            'options' => [
+                'scales' => [
+                    'yAxes' => [[
+                        'ticks' => [
+                            'beginAtZero' => true
+                        ]
+                    ]]
+                ]
+            ]
+        ];
+
+        return $data;
+    }
+
+    /**
+     * @param string $hex
+     * @param float $alpha
+     * @return string
+     */
+    private function convertHexToRgbaStr($hex, $alpha) {
+        $rgba = hex2rgba($hex, $alpha);
+        return 'rgba(' . implode($rgba, ',') . ')';
+    }
+
 }

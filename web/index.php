@@ -43,4 +43,5 @@ $app->getContainer()->registerService('App\Vendor\Database\Adapter\DatabaseAdapt
 
 $app->post('/graphql', 'GraphQL:index');
 $app->get('/graphql', 'GraphQL:explorer');
+$app->get('/graph', 'Tick:index');
 $app->run();
