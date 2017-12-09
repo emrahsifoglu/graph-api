@@ -4,3 +4,6 @@ dataSource:
         name:
         user:
         password:
+
+graphQL:
+    endpoint:
