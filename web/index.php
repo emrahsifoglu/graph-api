@@ -24,9 +24,6 @@ if (empty($config)) {
 }
 
 $app = new App();
-
-$app->get('/', function (Request $request) {
-    echo 'Hello world!';
-});
-
+$app->post('/graphql', 'GraphQL:index');
+$app->get('/graphql', 'GraphQL:explorer');
 $app->run();

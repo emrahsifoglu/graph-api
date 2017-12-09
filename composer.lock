@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "42db4e9a61c2e42f6782a8e7f0793de2",
-    "content-hash": "9f9a4e9f07cd5d394258512e477f6c57",
+    "hash": "ad62327f09725e32dc35078706a29ac1",
+    "content-hash": "04549ff7cdf976020f7f837f9b082533",
     "packages": [
         {
             "name": "symfony/yaml",
@@ -61,6 +61,49 @@
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
             "time": "2017-11-10 18:26:04"
+        },
+        {
+            "name": "youshido/graphql",
+            "version": "v1.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Youshido/GraphQL.git",
+                "reference": "627de161919059821a5411b9f3d58c26afb81683"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Youshido/GraphQL/zipball/627de161919059821a5411b9f3d58c26afb81683",
+                "reference": "627de161919059821a5411b9f3d58c26afb81683",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5,<8.0-DEV"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Youshido\\GraphQL\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexandr Viniychuk",
+                    "email": "a@viniychuk.com"
+                },
+                {
+                    "name": "Portey Vasil",
+                    "email": "portey@gmail.com"
+                }
+            ],
+            "description": "Pure PHP GraphQL",
+            "time": "2017-10-20 11:25:48"
         }
     ],
     "packages-dev": [],

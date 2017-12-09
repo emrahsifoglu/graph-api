@@ -9,7 +9,7 @@
 		}
 	],
 	"scripts": {
-		"serve": "php -S localhost:8000 -t web/"
+		"serve": "php -S 192.168.222.128:8000 -t web/"
 	},
 	"autoload": {
 		"psr-4": {
@@ -21,6 +21,7 @@
 		]
 	},
 	"require": {
-		"symfony/yaml": "^3.3"
+		"symfony/yaml": "^3.3",
+		"youshido/graphql": "^1.5"
 	}
 }
